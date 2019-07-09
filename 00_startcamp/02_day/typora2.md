@@ -28,7 +28,7 @@ git push -u origin master
 
 깃헙으로 푸쉬하는것
 
-
+첫 푸쉬전 ignore설정 중요!
 
 ```
 git init

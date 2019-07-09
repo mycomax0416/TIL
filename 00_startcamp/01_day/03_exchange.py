@@ -14,7 +14,7 @@ soup = BeautifulSoup(html, 'html.parser')
 exchange = soup.select_one('#exchangeList > li.on > a.head.usd > div > span.value').text
 
 ##exchangeList > li.on > a.head.jpy > div > span.value
-# li.on 에서 on 뺄 것
+# 위의 엔화는 달러와는 다르게 li.on 에서 on 뺄 것
 
 # 4. 출력한다
 print(exchange)

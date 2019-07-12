@@ -1,0 +1,32 @@
+{
+    'update_id': 565003057, 
+    'message': {
+        'message_id': 17, 
+        'from': {
+            'id': 848364237, 
+            'is_bot': False, 
+            'first_name': '이가경', 
+            'language_code': 'ko'
+        }, 
+        'chat': {
+            'id': 848364237, 
+            'first_name': '이가경', 
+            'type': 'private'
+        }, 
+        'date': 1562897740, 
+        'text': '1'
+    }
+}
+
+{
+    'message': {
+        '@type': 'response', 
+        '@service': 'naverservice.nmt.proxy', 
+        '@version': '1.0.0', 
+        'result': {
+            'srcLangType': 'ko', 
+            'tarLangType': 'en', 
+            'translatedText': 'apple'
+        }
+    }
+}

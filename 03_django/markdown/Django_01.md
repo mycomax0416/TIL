@@ -63,7 +63,7 @@
 - 과거에는 가상환경을 파이썬 자체적으로 제공하지 않아서 별도의 패키지를 설치해야 했다.(`virtualenv`) 버전 3.5 이후부터는 파이썬에 `venv` 라는 이름으로 가상환경 모듈을 지원한다.
 
 - 윈도우, 리눅스, 맥 구분없이 가상환경을 생성하는 방법은 동일
-    
+  
     - 윈도우는 `Scripts` 폴더 생성
     
 - 리눅스, 맥은 `bin` 폴더 생성
@@ -116,7 +116,7 @@
 **가상 환경 on/off**
 
 - git bash 에서 활성화 (가상 환경 설정 폴더 안에서 진행)
-    
+  
     - vs code를 새로 켜지 않으면 activate 된 해당 터미널은 해당 가상환경으로 계속 잡혀있음
     
 - 터미널을 어떤 걸로 켜든 새로 켜면 무조건 글로벌이고 가상 환경을 activate를 하면 가상 환경을 잡는다.
@@ -486,7 +486,7 @@ def dinner(request):
 def dinner(request):
     menu = ['족발', '햄버거', '치킨', '초밥']
     pick = random.choice(menu)
-		context = {'pick': pick}
+	context = {'pick': pick}
     return render(request, 'dinner.html', context)
 ```
 

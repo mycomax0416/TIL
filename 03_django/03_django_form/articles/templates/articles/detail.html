@@ -1,0 +1,18 @@
+{% extends 'articles/base.html' %}
+{% block content %}
+<h1>DETAIL</h1>
+<hr>
+<p> pk:  {{ article.pk }} </p>
+<p> title: {{ article.title }} </p>
+<p> content: {{ article.content }} </p>
+<p> created_at: {{ article.created_at|date:"SHORT_DATE_FORMAT" }} </p>
+<p> updated_at: {{ article.updated_at|date:"D d M Y" }} </p>
+<hr>
+<a href=" {% url 'articles:update' article.pk %}">[UPDATE]</a>
+<form action="{% url 'articles:delete' article.pk%} " method="POST">
+ {% csrf_token %}
+ <input type="submit" value="DELETE">
+</form>
+<hr>
+<a href="{% url 'articles:index' %}">[back]</a>
+{% endblock %}

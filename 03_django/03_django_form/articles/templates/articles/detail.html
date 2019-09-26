@@ -13,6 +13,27 @@
  {% csrf_token %}
  <input type="submit" value="DELETE">
 </form>
+<!-- 댓글 출력 -->
+{% for comment in comments %}
+  <div>
+    댓글 {{ forloop.revcounter }} : {{ comment.content }}
+    <form action="{% url 'articles:comments_delete' article.pk comment.pk %}" method="POST" style="display: inline:">
+      {% csrf_token %}
+      <input type="submit" value="DELETE">
+    </form>
+  </div>
+
+
+{% empty %}
+  <p><b>댓글이 없습니다.</b></p>
+{% endfor %}
+<hr>
+<!-- 댓글 입력 form -->
+<form action="{% url 'articles:index' article.pk %}" method="POST">
+{% csrf_token %}
+{{ comment_form }}
+<input type="submit" value="submit">
+</form>
 <hr>
 <a href="{% url 'articles:index' %}">[back]</a>
 {% endblock %}

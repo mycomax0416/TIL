@@ -17,3 +17,4 @@ admin.site.register(Comment, CommentAdmin)
 # @admin.register(Comment)
 # class CommentAdmin(admin.ModelAdmin):
 #     list_display = ('pk', 'content', 'created_at', 'updated_at', 'article_id',)
+

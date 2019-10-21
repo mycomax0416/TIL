@@ -3,26 +3,26 @@ from .models import Article, Comment
 
 # class ArticleForm(forms.Form):
 #     title = forms.CharField(
-#         max_length=50, 
+#         max_length=10, 
 #         label='제목',
 #         widget=forms.TextInput(
 #             attrs={
-#                 'class': 'text-center',
-#                 'placeholder' : 'ENTER TITLE'
+#                 'class': 'my-title',
+#                 'placeholder': 'Enter the title',
 #             }
 #         )
-#         )
+#     )
 #     content = forms.CharField(
 #         label='내용',
 #         widget=forms.Textarea(
 #             attrs={
 #                 'class': 'my-content',
-#                 'placeholder': 'ENTER CONTENT',
-#                 'rows' : 10,
-#                 'cols' : 30,
+#                 'placeholder': 'Enter the content',
+#                 'rows': 5,
+#                 'cols': 50,
 #             }
 #         )
-#         )
+#     )
 
 class ArticleForm(forms.ModelForm):
     title = forms.CharField(
@@ -30,24 +30,23 @@ class ArticleForm(forms.ModelForm):
         max_length=10,
         widget=forms.TextInput(
             attrs={
-                'class': 'my-title',
-                'placeholder': 'Enter the title'
+                'class': 'my-title', 
+                'placeholder': 'Enter the title',
             }
         )
     )
-
     content = forms.CharField(
         label='내용',
         widget=forms.Textarea(
             attrs={
                 'class': 'my-content',
-                'placeholder': 'ENTER CONTENT',
-                'rows' : 10,
-                'cols' : 30,
+                'placeholder': 'Enter the content',
+                'rows': 5,
+                'cols': 50,
             }
         )
     )
-
+    
     class Meta:
         model = Article
         # fields = ('title', 'content',)
@@ -59,8 +58,10 @@ class ArticleForm(forms.ModelForm):
         #     })
         # }
 
+
 class CommentForm(forms.ModelForm):
     
     class Meta:
         model = Comment
         fields = ('content',)
+

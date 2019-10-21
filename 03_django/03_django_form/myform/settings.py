@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'rzh2rkejfq6toz%-5id96k1rksge*mbcuibg167)619&$cglqc'
+SECRET_KEY = 'b=v)iz^!3lx_pd3&hn3*ohof^&^(ggh8d7rkqsh@v4eg06fw07'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'articles.apps.ArticlesConfig',
+    'accounts.apps.AccountsConfig',
     'bootstrap4',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -114,6 +115,10 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+# 모든 곳에서 request.session.modified = True 를 기본 값으로 사용하고 싶다면
+# 다음과 같이 설정
+# SESSION_SAVE_EVERY_REQUEST = True
 
 
 # Static files (CSS, JavaScript, Images)

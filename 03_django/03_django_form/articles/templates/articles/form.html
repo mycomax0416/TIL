@@ -1,7 +1,7 @@
 {% extends 'articles/base.html' %}
 {% load bootstrap4 %}
-{% block content %}
 
+{% block content %}
   {% if request.resolver_match.url_name == 'create' %}
     <h1>CREATE</h1>
   {% else %}
@@ -11,12 +11,13 @@
   <form action="" method="POST">
     {% csrf_token %}
     {% bootstrap_form form layout="horizontal" %}
-    {% buttons submit='OK' reset="Cancel" %}{% endbuttons %}
+    {% buttons submit="OK" reset="Cancel" %}{% endbuttons %}
   </form>
+  
   <hr>
   {% if request.resolver_match.url_name == 'create' %}
     <a href="{% url 'articles:index' %}">BACK</a>
   {% else %}
     <a href="{{ article.get_absolute_url }}">BACK</a>
   {% endif %}
-{% endblock  %}
+{% endblock %}

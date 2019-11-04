@@ -67,7 +67,6 @@ def comments_create(request, article_pk):
         comment.save()
         return redirect(article)
         # return redirect('articles:detail' article.pk)
-        # return redirect('articles:detail' article_pk)
     else:
         return redirect(article)
 

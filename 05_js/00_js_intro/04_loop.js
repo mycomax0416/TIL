@@ -17,7 +17,6 @@ for (let number of numbers) {
   console.log(number)
 }
 
-
 for (let number of [0, 1, 2, 3, 4, 5,]) {
   console.log(number)
 }

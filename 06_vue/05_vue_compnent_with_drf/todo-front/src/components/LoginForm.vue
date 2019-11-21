@@ -1,7 +1,7 @@
 <template>
   <div class="login-div">
     <div v-if="loading" class="spinner-border" role="status">
-      <span class="sr-only">Loading...</span>  
+      <span class="sr-only">Loading...</span>
     </div>
 
     <form v-else class="login-form" @submit.prevent="login">
@@ -17,7 +17,7 @@
           type="text" 
           class="form-control" 
           id="id" 
-          placeholder="아이디를 입력해주세요." 
+          placeholder="아이디를 입력해주세요."
           v-model="credentials.username"
           >
       </div>
@@ -25,7 +25,7 @@
         <label for="password">PASSWORD</label>
         <input 
           type="password" 
-          class="form-control" 
+          class="form-control"
           id="password" 
           placeholder="비밀번호를 입력해주세요."
           v-model="credentials.password"
@@ -48,26 +48,31 @@
           username: '',
           password: '',
         },
-        loading: false,
+        // loading: false,
         errors: [],
+      }
+    },
+    computed: {
+      loading: function() {
+        return this.$store.state.loading
       }
     },
     methods: {
       login() {
         if (this.checkForm()) {
-          this.loading = true
-          // django jwt 를 생성하는 주소로 요청을 보냄
-          // 이때 post 요청으로 보내야하며 사용자가 입력한 로그인 정보를 같이 넘겨야 함.
+          // this.loading = true
+          this.$store.dispatch('startLoading')
           axios.post('http://127.0.0.1:8000/api-token-auth/', this.credentials)
           .then(res => {
-            this.$session.start()
-            this.$session.set('jwt', res.data.token)
+            // this.$session.start()
+            // this.$session.set('jwt', res.data.token)
+            this.$store.dispatch('endLoading')
+            this.$store.dispatch('login', res.data.token)
             router.push('/')
-            this.loading = false
           })
           .catch(err => {
-            // 3. 로그인 실패 시 loading 의 상태를 다시 false 로 변경
-            this.loading = false
+            // this.loading = false
+            this.$store.dispatch('endLoading')
             console.log(err)
           })
         } else {
@@ -87,7 +92,7 @@
           return true
         }
       }
-    }
+    },
   }
 </script>
 
